@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Siddhant Singh — Digital Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Syne+Mono&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0D0F12;
+    --surface: #161A1F;
+    --surface2: #1C2128;
+    --border: #242830;
+    --teal: #00C2A8;
+    --orange: #FF6B35;
+    --text: #F0F2F5;
+    --muted: #8892A0;
+    --dim: #4A5568;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 240px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 28px;
+    z-index: 100;
+  }
+
+  .sidebar-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+    margin-bottom: 36px;
+  }
+
+  nav { flex: 1; }
+
+  nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    width: 2px;
+    height: 0;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: height 0.2s;
+    flex-shrink: 0;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--text);
+  }
+
+  nav a:hover::before, nav a.active::before {
+    height: 16px;
+  }
+
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--orange);
+    background: rgba(255,107,53,0.12);
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: 20px;
+    padding: 2px 7px;
+    margin-left: auto;
+  }
+
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 13px 24px;
+    border: 1px solid rgba(255,107,53,0.35);
+    border-radius: 6px;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+
+  .btn-accent:hover { border-color: var(--orange); background: rgba(255,107,53,0.08); transform: translateY(-1px); }
+
+  .sidebar-contact {
+    margin-top: auto;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+
+  .sidebar-contact a {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+
+  .sidebar-contact a:hover { color: var(--teal); }
+
+  /* ── MAIN ── */
+  main {
+    margin-left: 240px;
+    flex: 1;
+    max-width: 860px;
+    padding: 0 56px 100px;
+  }
+
+  section {
+    padding-top: 80px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    padding-top: 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(44px, 6vw, 68px);
+    font-weight: 800;
+    line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 16px;
+    letter-spacing: -2px;
+  }
+
+  .hero-role-wrap {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(20px, 2.8vw, 30px);
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 28px;
+    min-height: 40px;
+  }
+
+  .hero-role-wrap span {
+    color: var(--orange);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--teal);
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .hero-bio {
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal);
+    color: #0D0F12;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 13px 24px;
+    border-radius: 6px;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 13px 24px;
+    border-radius: 6px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-ghost:hover { border-color: var(--teal); transform: translateY(-1px); }
+
+  /* ── METRICS STRIP ── */
+  .metrics-strip {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 540px;
+  }
+
+  .metric-cell {
+    background: var(--surface);
+    padding: 22px 24px;
+    text-align: center;
+  }
+
+  .metric-number {
+    font-family: 'Syne Mono', monospace;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--teal);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .about-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .about-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .about-card.full { grid-column: 1 / -1; }
+
+  /* ── EXPERIENCE ── */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 140px;
+    top: 28px;
+    bottom: -40px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .exp-item:last-child::before { display: none; }
+
+  .exp-date {
+    font-family: 'Syne Mono', monospace;
+    font-size: 12px;
+    color: var(--dim);
+    padding-top: 4px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .exp-body {
+    padding-left: 28px;
+    border-left: 2px solid var(--border);
+    position: relative;
+  }
+
+  .exp-body::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--bg);
+  }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 12px;
+    top: 1px;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--surface2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    letter-spacing: 0.3px;
+  }
+
+  .tag.hot {
+    background: rgba(0, 194, 168, 0.1);
+    color: var(--teal);
+    border-color: rgba(0, 194, 168, 0.2);
+  }
+
+  /* ── CASE STUDIES ── */
+  .case-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .case-card:hover { border-color: var(--teal); }
+
+  .case-card.featured {
+    border-color: rgba(255, 107, 53, 0.35);
+    background: linear-gradient(180deg, rgba(255,107,53,0.05), var(--surface) 140px);
+  }
+
+  .case-card.featured:hover { border-color: var(--orange); }
+
+  .case-featured-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+  }
+
+  .case-featured-flag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .case-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .case-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 14px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .case-links a:hover { border-color: var(--teal); color: var(--teal); }
+
+  .case-header {
+    padding: 24px 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    user-select: none;
+  }
+
+  .case-industry {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+
+  .case-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .case-metrics {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .case-metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case-metric-val {
+    font-family: 'Syne Mono', monospace;
+    font-size: 22px;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .case-metric-lbl {
+    font-size: 11px;
+    color: var(--dim);
+    margin-top: 3px;
+  }
+
+  .case-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    margin-top: 2px;
+  }
+
+  .case-card:hover .case-toggle {
+    background: rgba(0,194,168,0.1);
+    border-color: var(--teal);
+  }
+
+  .case-toggle svg {
+    transition: transform 0.3s;
+    color: var(--muted);
+  }
+
+  .case-card.open .case-toggle svg { transform: rotate(180deg); }
+
+  .case-body {
+    display: none;
+    padding: 0 28px 28px;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-card.open .case-body { display: block; }
+
+  .case-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--dim);
+    margin: 20px 0 8px;
+    font-weight: 600;
+  }
+
+  .case-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .case-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .case-body ul li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .case-body ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .skill-group-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-group-title span {
+    font-size: 16px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-pill {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .skill-pill.primary {
+    background: rgba(0,194,168,0.08);
+    border-color: rgba(0,194,168,0.25);
+    color: var(--teal);
+  }
+
+  /* ── CERTS ── */
+  .certs-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .cert-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .cert-badge::before {
+    content: '✓';
+    width: 18px;
+    height: 18px;
+    background: rgba(0,194,168,0.12);
+    color: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 14px;
+  }
+
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .edu-detail {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .contact-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  .contact-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(0,194,168,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 2px;
+  }
+
+  .contact-val {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .avail-banner {
+    background: rgba(0,194,168,0.06);
+    border: 1px solid rgba(0,194,168,0.2);
+    border-radius: 10px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avail-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:0.4;transform:scale(0.8)}
+  }
+
+  .avail-text {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .avail-text strong { color: var(--teal); }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--dim);
+    text-align: center;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .sidebar { display: none; }
+    main { margin-left: 0; padding: 0 20px 80px; }
+    .metrics-strip { grid-template-columns: repeat(3, 1fr); max-width: 100%; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-date { text-align: left; }
+    .exp-item::before { display: none; }
+    h2 { font-size: 26px; }
+    .hero-name { letter-spacing: -1px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-name">Siddhant Singh</div>
+  <div class="sidebar-title">Digital Marketing</div>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#casestudies">Case Studies <span class="nav-badge">New</span></a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="sidebar-contact">
+    <a href="mailto:ssiddhant819@gmail.com">ssiddhant819@gmail.com</a>
+    <a href="https://linkedin.com/in/siddhant-singh-marketer" target="_blank">LinkedIn ↗</a>
+    <a href="#">Munich, Germany 🇩🇪</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-eyebrow">Available for internships & working student roles</div>
+    <h1 class="hero-name">Siddhant<br/>Singh</h1>
+    <div class="hero-role-wrap">
+      <span id="role-text">Performance Marketing</span><span class="cursor"></span>
+    </div>
+    <p class="hero-bio">
+      Digital marketing student at EU Business School Munich, building campaigns from briefs to results.
+      I track the numbers, run the tests, and keep improving until they move.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:ssiddhant819@gmail.com" class="btn-primary">
+        ✉ Get in touch
+      </a>
+      <a href="https://linkedin.com/in/siddhant-singh-marketer" target="_blank" class="btn-ghost">
+        LinkedIn ↗
+      </a>
+      <a href="#research" class="btn-accent">
+        ★ New: Allianz research
+      </a>
+    </div>
+
+    <div class="metrics-strip">
+      <div class="metric-cell">
+        <span class="metric-number" data-target="30" data-suffix="%">0</span>
+        <span class="metric-label">More Leads</span>
+      </div>
+      <div class="metric-cell">
+        <span class="metric-number" data-target="20" data-suffix="%">0</span>
+        <span class="metric-label">Lower CPL</span>
+      </div>
+      <div class="metric-cell">
+        <span class="metric-number" data-target="18" data-suffix="%">0</span>
+        <span class="metric-label">Higher CTR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About me</div>
+    <h2>Data-driven marketer.<br/>Builder by instinct.</h2>
+    <div class="about-grid reveal">
+      <div class="about-card full">
+        <h3>Who I am</h3>
+        <p>I'm a marketing student with an M.Sc. in Digital Marketing, Transformation & Design Thinking at EU Business School Munich. I've independently managed paid campaigns and social media for clients in real estate, education, and manufacturing — adapting strategy, copy, and creative for each audience, and measuring everything.</p>
+      </div>
+      <div class="about-card">
+        <h3>How I work</h3>
+        <p>I take full ownership of what I'm given. I've built dashboards, run A/B tests, managed budgets, and reported results clearly — without needing hand-holding. I thrive when I can go from brief to live campaign to insight quickly.</p>
+      </div>
+      <div class="about-card">
+        <h3>Where I'm headed</h3>
+        <p>Growth marketing, performance, or digital strategy in a startup or agency. I want to work somewhere where my decisions actually ship, and the team is small enough that everyone's contribution matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <h2>Where I've worked</h2>
+
+    <div class="exp-item reveal">
+      <div class="exp-date">Oct 2025<br/>Dec 2025</div>
+      <div class="exp-body">
+        <div class="exp-role">Social Media & Content Volunteer</div>
+        <div class="exp-company">Ahbee Agency — Nigeria (Remote)</div>
+        <ul class="exp-bullets">
+          <li>Owned the full content pipeline: built the editorial calendar, wrote copy, designed 20+ visuals in Canva, and published across Instagram and LinkedIn independently</li>
+          <li>Monitored platform metrics weekly and fed insights back into content decisions to improve engagement</li>
+          <li>Collaborated directly with the founder and a small remote team, executing without waiting for detailed instructions</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag hot">Canva</span>
+          <span class="tag hot">Instagram</span>
+          <span class="tag hot">LinkedIn</span>
+          <span class="tag">Editorial Planning</span>
+          <span class="tag">Remote Team</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-date">Mar 2023<br/>Dec 2023</div>
+      <div class="exp-body">
+        <div class="exp-role">Digital Marketing Intern</div>
+        <div class="exp-company">Idecution Marketing LLP — India</div>
+        <ul class="exp-bullets">
+          <li>Independently owned and managed paid campaigns on Google Ads, Meta, and LinkedIn for <strong style="color:var(--text)">3 clients</strong> across real estate, education, and manufacturing — from strategy to execution with no oversight</li>
+          <li>Collaborated directly with the founder on <strong style="color:var(--text)">4 additional clients</strong>, contributing to campaign strategy, creative direction, and execution across a broader portfolio</li>
+          <li>Initiated and built a <strong style="color:var(--text)">cross-department ideation practice</strong> — bringing together every team (design, copy, strategy, ops) into a structured creative process to consistently deliver fresh, high-quality creatives to clients</li>
+          <li>Reduced cost per lead by 20% and grew lead volume by 30% through audience testing and creative iteration</li>
+          <li>Ran A/B tests on ad creatives and targeting, improving CTR by 18%</li>
+          <li>Built Excel/Google Sheets dashboards to track KPIs and ROI; reported results clearly to clients and the founder</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag hot">Google Ads</span>
+          <span class="tag hot">Meta Ads</span>
+          <span class="tag hot">LinkedIn Ads</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Excel Dashboards</span>
+          <span class="tag">3 Independent Clients</span>
+          <span class="tag">4 Clients w/ Founder</span>
+          <span class="tag">Cross-Dept Ideation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="casestudies">
+    <div class="section-label">Case Studies</div>
+    <h2>Work in detail</h2>
+
+    <div class="case-grid">
+
+      <div class="case-card featured reveal open" id="research">
+        <div class="case-header" onclick="toggleCase(this)">
+          <div>
+            <span class="case-featured-flag">Self-initiated</span>
+            <div class="case-industry">Insurance · Competitive Intelligence</div>
+            <div class="case-title">Benchmarking Allianz Germany vs. ERGO & AXA — Using Only Public Data</div>
+            <div class="case-metrics">
+              <div class="case-metric">
+                <span class="case-metric-val">3</span>
+                <span class="case-metric-lbl">Brands Benchmarked</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-metric-val">18</span>
+                <span class="case-metric-lbl">Ads Reviewed</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-metric-val">13.2K</span>
+                <span class="case-metric-lbl">Peak Post Likes Found</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 5l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-section-title">The Question</div>
+          <p>Could I produce a genuinely useful competitive read on Allianz Germany's social strategy with no internal dashboards, no paid tools, and no insider access — using only what any customer scrolling their feed could see?</p>
+          <div class="case-section-title">What I Did</div>
+          <ul>
+            <li>Reviewed 18 individual ads across Allianz, ERGO, and AXA via the public Meta Ad Library</li>
+            <li>Tracked several months of organic Instagram, Facebook, and LinkedIn activity (May–Aug 2026) for all three brands</li>
+            <li>Read what was actually visible — creative choices, posting cadence, tone of voice, and comment engagement — instead of guessing at metrics I couldn't access</li>
+            <li>Synthesised the findings into 5 key patterns and 3 testable recommendations, ranked by effort vs. impact</li>
+          </ul>
+          <div class="case-section-title">The Result</div>
+          <p>Found that Allianz is the most video-heavy of the three but not the least frequent poster, that Allianz and ERGO both show signs of unmanaged ad duplication, and that AXA runs the most disciplined creative testing yet has the smallest audience. The clearest opportunity: Allianz's FC Bayern collaboration post pulled in 13.2K likes and 159 comments — the strongest engagement of any post reviewed — but runs only once a month instead of as a repeatable content pillar. Packaged as an 11-slide research deck and a LinkedIn article.</p>
+          <div class="case-links">
+            <a href="./Allianz_Germany_Social_Media_Analysis.pptx" target="_blank" rel="noopener">📊 View the research deck</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-header" onclick="toggleCase(this)">
+          <div>
+            <div class="case-industry">Real Estate · Paid Social</div>
+            <div class="case-title">20% CPL Reduction for a Property Developer</div>
+            <div class="case-metrics">
+              <div class="case-metric">
+                <span class="case-metric-val">−20%</span>
+                <span class="case-metric-lbl">Cost per Lead</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-metric-val">+30%</span>
+                <span class="case-metric-lbl">Lead Volume</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 5l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-section-title">The Problem</div>
+          <p>A real estate client was spending heavily on Meta and Google Ads but generating expensive, low-quality leads. CPL was high and conversion to viewings was low.</p>
+          <div class="case-section-title">What I Did</div>
+          <ul>
+            <li>Audited the existing campaigns and identified poor audience segmentation and generic ad creative as the main issues</li>
+            <li>Rebuilt the campaign structure with tighter geographic targeting and separate ad sets for different buyer profiles (first-time buyers vs. investors)</li>
+            <li>Wrote and designed new creatives using Canva — specific, benefit-led copy instead of generic property ads</li>
+            <li>Set up A/B tests across 4 creative variants and 3 audience sets simultaneously</li>
+            <li>Built a Google Sheets dashboard to track CPL, CTR, and form completion rate daily</li>
+          </ul>
+          <div class="case-section-title">The Result</div>
+          <p>Within 6 weeks: cost per lead dropped 20%, lead volume grew 30%, and CTR improved 18% on the winning creative. The client renewed the contract.</p>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-header" onclick="toggleCase(this)">
+          <div>
+            <div class="case-industry">Education · Multi-Platform</div>
+            <div class="case-title">Full-Funnel Campaign for an EdTech Client</div>
+            <div class="case-metrics">
+              <div class="case-metric">
+                <span class="case-metric-val">+18%</span>
+                <span class="case-metric-lbl">CTR</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-metric-val">3</span>
+                <span class="case-metric-lbl">Platforms Managed</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 5l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-section-title">The Problem</div>
+          <p>An education client needed enrolment campaigns across Google, Meta, and LinkedIn — three different audience mindsets and three different creatives required, all within the same budget.</p>
+          <div class="case-section-title">What I Did</div>
+          <ul>
+            <li>Mapped out a platform strategy: Google Search for intent-based (people already searching courses), Meta for interest-based reach, LinkedIn for professional upskilling angle</li>
+            <li>Wrote tailored copy for each channel and designed creatives per platform specification</li>
+            <li>Set up UTM tracking and a shared reporting dashboard so performance across all three could be compared in one place</li>
+            <li>Ran weekly performance reviews and reallocated budget to best-performing channels</li>
+          </ul>
+          <div class="case-section-title">The Result</div>
+          <p>Google Search delivered the lowest CPL, LinkedIn had the highest course completion rate downstream. Overall CTR improved 18% after creative iteration in week 3. Insights were reported to the client with clear budget recommendations.</p>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-header" onclick="toggleCase(this)">
+          <div>
+            <div class="case-industry">Social Media · Brand</div>
+            <div class="case-title">Building a Content System for Ahbee Agency</div>
+            <div class="case-metrics">
+              <div class="case-metric">
+                <span class="case-metric-val">20+</span>
+                <span class="case-metric-lbl">Assets Created</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-metric-val">2</span>
+                <span class="case-metric-lbl">Platforms Managed</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 5l5 5 5-5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-section-title">The Problem</div>
+          <p>Ahbee Agency had inconsistent social presence — no publishing schedule, no visual identity system, and no way to measure what was working.</p>
+          <div class="case-section-title">What I Did</div>
+          <ul>
+            <li>Built an editorial calendar in Notion covering 8 weeks of content across Instagram and LinkedIn</li>
+            <li>Created a visual template library in Canva (post templates, story templates, highlight covers) so the team could produce content without starting from scratch each time</li>
+            <li>Wrote all captions, adapting tone between Instagram (conversational) and LinkedIn (professional)</li>
+            <li>Set up a basic analytics review using platform insights to track reach, saves, and follower growth weekly</li>
+          </ul>
+          <div class="case-section-title">The Result</div>
+          <p>Consistent publishing across both channels for 2 months. The template system remained in use after the engagement ended. Engagement rate improved week-over-week as content became more targeted.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills & Tools</div>
+    <h2>What I bring</h2>
+
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <div class="skill-group-title"><span>📊</span> Paid Marketing</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Google Ads</span>
+          <span class="skill-pill primary">Meta Ads</span>
+          <span class="skill-pill primary">LinkedIn Ads</span>
+          <span class="skill-pill">Google Analytics</span>
+          <span class="skill-pill">A/B Testing</span>
+          <span class="skill-pill">Budget Optimisation</span>
+          <span class="skill-pill">Audience Targeting</span>
+          <span class="skill-pill">Conversion Tracking</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>✍️</span> Content & Creative</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Canva</span>
+          <span class="skill-pill">Social Media Copy</span>
+          <span class="skill-pill">Content Calendar</span>
+          <span class="skill-pill">Editorial Planning</span>
+          <span class="skill-pill">Instagram</span>
+          <span class="skill-pill">LinkedIn</span>
+          <span class="skill-pill">Newsletter Writing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>📈</span> Analytics & Reporting</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Excel Dashboards</span>
+          <span class="skill-pill primary">Google Sheets</span>
+          <span class="skill-pill">KPI Tracking</span>
+          <span class="skill-pill">ROI Analysis</span>
+          <span class="skill-pill">Campaign Reporting</span>
+          <span class="skill-pill">UTM Tracking</span>
+          <span class="skill-pill">Performance Reporting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>🌍</span> Languages & Soft Skills</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">English C2</span>
+          <span class="skill-pill">German A2</span>
+          <span class="skill-pill">Independent Worker</span>
+          <span class="skill-pill">Client Management</span>
+          <span class="skill-pill">Cross-cultural Teams</span>
+          <span class="skill-pill">Proactive</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:36px">Certifications</div>
+    <div class="certs-row reveal">
+      <div class="cert-badge">Google Ads</div>
+      <div class="cert-badge">Google Analytics</div>
+      <div class="cert-badge">LinkedIn Ads</div>
+      <div class="cert-badge">Social Media Marketing</div>
+      <div class="cert-badge">Marketing Analytics</div>
+      <div class="cert-badge">Digital Marketing</div>
+      <div class="cert-badge">HubSpot Inbound</div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label">Education</div>
+    <h2>Academic background</h2>
+
+    <div class="reveal">
+      <div class="edu-item">
+        <div class="edu-degree">M.Sc. Digital Marketing, Transformation & Design Thinking</div>
+        <div class="edu-school">EU Business School · Munich, Germany · 2024 – 2027</div>
+        <div class="edu-detail">Coursework: Digital Marketing Strategy, Analytics & Metrics, UX, Design Thinking, Digital Transformation, Tech & Future Trends, Digital Entrepreneurship. Projects: Integrated campaign planning, social media strategy, go-to-market strategy, Facebook strategy development, product development.</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Advanced Digital Marketing Certification</div>
+        <div class="edu-school">UpGrad-MICA · 2022 – 2023</div>
+        <div class="edu-detail">SEM, SEO optimisation, Marketing Analytics, Integrated Campaigns. Specialisation: Public Relations, Branding & Communications.</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Bachelor of Computer Applications</div>
+        <div class="edu-school">Institute of Management Studies · Ghaziabad, India · 2018 – 2021</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:36px">Achievements</div>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
+      <div class="edu-item" style="display:flex;align-items:flex-start;gap:16px">
+        <span style="font-size:26px;line-height:1;flex-shrink:0">🏅</span>
+        <div>
+          <div class="edu-degree" style="font-size:15px">Scholarship Holder — Allianz Group</div>
+          <div class="edu-detail">Awarded a scholarship by Allianz Group in recognition of academic performance and potential.</div>
+        </div>
+      </div>
+      <div class="edu-item" style="display:flex;align-items:flex-start;gap:16px">
+        <span style="font-size:26px;line-height:1;flex-shrink:0">🥈</span>
+        <div>
+          <div class="edu-degree" style="font-size:15px">Finalist — Holcim Entrepreneurship Challenge · France</div>
+          <div class="edu-detail">Selected as a finalist from a global pool of applicants. Pitched a concept for promoting sustainable practices in the construction industry to an international jury.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Get in touch</div>
+    <h2>Let's work together</h2>
+
+    <div class="avail-banner reveal" style="margin-bottom:24px">
+      <div class="avail-dot"></div>
+      <div class="avail-text">
+        <strong>Currently available</strong> for internships, working student roles, and freelance projects in Munich and remotely.
+      </div>
+    </div>
+
+    <div class="contact-grid reveal">
+      <a href="mailto:ssiddhant819@gmail.com" class="contact-card">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">ssiddhant819@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:+4917722211185" class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">+49 177 2211185</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/siddhant-singh-marketer" target="_blank" class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val">siddhant-singh-marketer</div>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-val">Munich, Germany</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built with care · Siddhant Singh · Munich 2026
+  </footer>
+
+</main>
+
+<script>
+  // Role cycling
+  const roles = [
+    "Performance Marketing",
+    "Paid Ads & Growth",
+    "Social Media Strategy",
+    "Content Creation",
+    "Campaign Analytics"
+  ];
+  let ri = 0;
+  const roleEl = document.getElementById('role-text');
+
+  function cycleRole() {
+    roleEl.style.opacity = '0';
+    roleEl.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      ri = (ri + 1) % roles.length;
+      roleEl.textContent = roles[ri];
+      roleEl.style.transition = 'opacity 0.4s, transform 0.4s';
+      roleEl.style.opacity = '1';
+      roleEl.style.transform = 'translateY(0)';
+    }, 300);
+  }
+  roleEl.style.transition = 'opacity 0.4s, transform 0.4s';
+  setInterval(cycleRole, 2600);
+
+  // Count-up metrics
+  function countUp(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const step = 16;
+    const steps = duration / step;
+    const increment = target / steps;
+    let current = 0;
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(interval);
+      }
+      el.textContent = Math.round(current) + suffix;
+    }, step);
+  }
+
+  const metricsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.metric-number').forEach(countUp);
+        metricsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const strip = document.querySelector('.metrics-strip');
+  if (strip) metricsObserver.observe(strip);
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  // Case study toggle
+  function toggleCase(header) {
+    const card = header.closest('.case-card');
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
