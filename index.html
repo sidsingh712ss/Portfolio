@@ -662,6 +662,67 @@
     top: 2px;
   }
 
+  /* ── INDUSTRIES ── */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .industry-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .industry-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+
+  .industry-card.wide { grid-column: 1 / -1; }
+
+  .industry-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .industry-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .industry-model {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .industry-model.b2b {
+    background: rgba(0,194,168,0.1);
+    color: var(--teal);
+    border: 1px solid rgba(0,194,168,0.25);
+  }
+
+  .industry-model.b2c {
+    background: rgba(255,107,53,0.1);
+    color: var(--orange);
+    border: 1px solid rgba(255,107,53,0.3);
+  }
+
+  .industry-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
   /* ── SKILLS ── */
   .skills-grid {
     display: grid;
@@ -884,6 +945,7 @@
     .exp-item::before { display: none; }
     h2 { font-size: 26px; }
     .hero-name { letter-spacing: -1px; }
+    .industries-grid { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -906,6 +968,7 @@
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#casestudies">Case Studies <span class="nav-badge">New</span></a>
+    <a href="#industries">Industries</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -1198,6 +1261,71 @@
     </div>
   </section>
 
+  <!-- CREATIVES -->
+  <section id="industries">
+    <div class="section-label">Portfolio</div>
+    <h2>Industries I've worked with</h2>
+
+    <div class="industries-grid reveal">
+
+      <div class="industry-card">
+        <div class="industry-top">
+          <div class="industry-name">Manufacturing</div>
+          <span class="industry-model b2b">B2B</span>
+        </div>
+        <div class="industry-services">
+          <span class="tag hot">Social Media Optimisation</span>
+        </div>
+      </div>
+
+      <div class="industry-card">
+        <div class="industry-top">
+          <div class="industry-name">Real Estate</div>
+          <span class="industry-model b2c">B2C</span>
+        </div>
+        <div class="industry-services">
+          <span class="tag hot">Google Ads</span>
+          <span class="tag hot">Social Media Optimisation</span>
+        </div>
+      </div>
+
+      <div class="industry-card">
+        <div class="industry-top">
+          <div class="industry-name">Education</div>
+          <span class="industry-model b2c">B2C</span>
+        </div>
+        <div class="industry-services">
+          <span class="tag hot">Social Media Marketing</span>
+          <span class="tag hot">Social Media Optimisation</span>
+        </div>
+      </div>
+
+      <div class="industry-card">
+        <div class="industry-top">
+          <div class="industry-name">IT</div>
+          <span class="industry-model b2b">B2B</span>
+        </div>
+        <div class="industry-services">
+          <span class="tag hot">Social Media Optimisation</span>
+        </div>
+      </div>
+
+      <div class="industry-card wide">
+        <div class="industry-top">
+          <div class="industry-name">Marketing</div>
+          <span class="industry-model b2b">B2B</span>
+        </div>
+        <div class="industry-services">
+          <span class="tag hot">Social Media Marketing</span>
+          <span class="tag hot">Social Media Optimisation</span>
+          <span class="tag hot">Google Ads</span>
+          <span class="tag hot">SEO</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-label">Skills & Tools</div>
@@ -1444,6 +1572,7 @@
     const card = header.closest('.case-card');
     card.classList.toggle('open');
   }
+
 </script>
 </body>
 </html>
