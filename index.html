@@ -849,6 +849,50 @@
     line-height: 1.6;
   }
 
+  /* ── RECOMMENDATIONS ── */
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .doc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .doc-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+
+  .doc-meta {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+
+  .doc-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .doc-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .doc-card .case-links { margin-top: auto; padding-top: 20px; }
+
   /* ── CONTACT ── */
   .contact-grid {
     display: grid;
@@ -955,6 +999,7 @@
     h2 { font-size: 26px; }
     .hero-name { letter-spacing: -1px; }
     .industries-grid { grid-template-columns: 1fr; }
+    .doc-grid { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -980,6 +1025,7 @@
     <a href="#industries">Industries</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
+    <a href="#recognition">Recommendations</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="sidebar-contact">
@@ -1080,7 +1126,7 @@
       <div class="exp-date">Mar 2023<br/>Dec 2023</div>
       <div class="exp-body">
         <div class="exp-role">Digital Marketing Intern</div>
-        <div class="exp-company">Idecution Marketing LLP — India</div>
+        <div class="exp-company">Idecution Marketing Studio LLP — India</div>
         <ul class="exp-bullets">
           <li>Independently owned and managed paid campaigns on Google Ads, Meta, and LinkedIn for <strong style="color:var(--text)">3 clients</strong> across real estate, education, and manufacturing — from strategy to execution with no oversight</li>
           <li>Collaborated directly with the founder on <strong style="color:var(--text)">4 additional clients</strong>, contributing to campaign strategy, creative direction, and execution across a broader portfolio</li>
@@ -1150,7 +1196,7 @@
           <div class="case-section-title">The Result</div>
           <p>Found that Allianz is the most video-heavy of the three but not the least frequent poster, that Allianz and ERGO both show signs of unmanaged ad duplication, and that AXA runs the most disciplined creative testing yet has the smallest audience. The clearest opportunity: Allianz's FC Bayern collaboration post pulled in 13.2K likes and 159 comments — the strongest engagement of any post reviewed — but runs only once a month instead of as a repeatable content pillar. Packaged as an 11-slide research deck and a LinkedIn article.</p>
           <div class="case-links">
-            <a href="https://1drv.ms/p/c/c511eaf121fe25bd/IQBnoVC7EZTCRbWF_0kjvS2MAVU50oD_G0rnH6o54_Cb3wQ" target="_blank"" rel="noopener">📊 View the research deck</a>
+            <a href="https://1drv.ms/p/c/c511eaf121fe25bd/IQBnoVC7EZTCRbWF_0kjvS2MAVU50oD_G0rnH6o54_Cb3wQ" target="_blank" rel="noopener">📊 View the research deck</a>
           </div>
         </div>
       </div>
@@ -1441,6 +1487,39 @@
           <div class="edu-detail">Selected as a finalist from a global pool of applicants. Pitched a concept for promoting sustainable practices in the construction industry to an international jury.</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- RECOMMENDATIONS & CERTIFICATES -->
+  <section id="recognition">
+    <div class="section-label">Proof of work</div>
+    <h2>Recommendations & certificates</h2>
+
+    <div class="doc-grid reveal">
+
+      <div class="doc-card">
+        <div class="doc-meta">Recommendation Letter · Feb 2024</div>
+        <div class="doc-title">Idecution Marketing Studio LLP</div>
+        <p class="doc-desc">
+          Signed by Urjita Kshatriya, Partner, covering my tenure as Digital Marketing Specialist (Intern), 9 March – 15 December 2023.
+          Describes me as hardworking, sincere, and a good team player who contributed to digital marketing strategy.
+        </p>
+        <div class="case-links">
+          <a href="documents/idecution-recommendation-letter.pdf" target="_blank" rel="noopener">📄 View letter (PDF)</a>
+        </div>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-meta">Certificate of Completion · Dec 2025</div>
+        <div class="doc-title">Ahbee Agency</div>
+        <p class="doc-desc">
+          Awarded on 2 December 2025 by the CEO of Ahbee Agency for completing the Volunteer Program in Digital Marketing.
+        </p>
+        <div class="case-links">
+          <a href="documents/ahbee-certificate-of-completion.pdf" target="_blank" rel="noopener">🎓 View certificate (PDF)</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
